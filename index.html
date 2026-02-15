@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Найди слова</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="board-section">
+        <h1>Найди слова</h1>
+        <div id="grid" class="grid" aria-label="Игровая сетка"></div>
+        <p id="status" class="status" aria-live="polite"></p>
+      </section>
+
+      <aside class="side-panel">
+        <h2>Слова</h2>
+        <ul id="word-list" class="word-list"></ul>
+
+        <div class="controls">
+          <button id="new-game" type="button">Новая игра</button>
+          <button id="hint" type="button">Подсказка</button>
+          <button id="reset" type="button">Сброс</button>
+        </div>
+      </aside>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --text: #1b1f29;
+  --accent: #3a6ff7;
+  --accent-soft: #dce7ff;
+  --found: #57b35f;
+  --found-soft: #dff5e1;
+  --hint: #f4a72f;
+  --hint-soft: #ffeacc;
+  --line: #d8deeb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) 260px;
+  gap: 20px;
+}
+
+.board-section,
+.side-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(16, 24, 40, 0.06);
+}
+
+h1,
+h2 {
+  margin: 0 0 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 34px);
+  grid-template-rows: repeat(12, 34px);
+  gap: 4px;
+  user-select: none;
+  touch-action: none;
+}
+
+.cell {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #fff;
+  cursor: pointer;
+}
+
+.cell.selected {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.cell.found {
+  background: var(--found-soft);
+  border-color: var(--found);
+  color: #1d6f29;
+}
+
+.cell.hint {
+  background: var(--hint-soft);
+  border-color: var(--hint);
+}
+
+.word-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.word-list li {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font-weight: 600;
+}
+
+.word-list li.found {
+  border-color: var(--found);
+  background: var(--found-soft);
+  text-decoration: line-through;
+  color: #1d6f29;
+}
+
+.controls {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+button {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+.status {
+  margin: 14px 0 0;
+  min-height: 24px;
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(12, minmax(24px, 1fr));
+  }
+
+  .cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+}
